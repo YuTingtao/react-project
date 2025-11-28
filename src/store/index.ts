@@ -1,7 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export const useStore = create(
+export interface IStore {
+  token: string;
+  setToken: (val: string) => void;
+}
+
+export const useStore = create<IStore>()(
   persist(
     (set) => ({
       token: '',
