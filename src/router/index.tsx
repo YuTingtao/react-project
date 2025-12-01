@@ -1,5 +1,5 @@
 import React from 'react';
-import { createHashRouter } from 'react-router';
+import { createHashRouter, Navigate } from 'react-router';
 import PrivateRoute from '@/components/PrivateRoute.tsx';
 
 const Layout = React.lazy(() => import('@/views/layout/index.tsx'));
@@ -14,7 +14,10 @@ export const router = createHashRouter([
         <Layout />
       </PrivateRoute>
     ),
-    children: [{ path: '/home', element: <Home /> }]
+    children: [
+      { index: true, element: <Navigate to="/home" /> },
+      { path: '/home', element: <Home /> }
+    ]
   },
   { path: '/login', element: <Login /> }
 ]);
