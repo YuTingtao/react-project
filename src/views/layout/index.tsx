@@ -1,17 +1,22 @@
+import AppHeader from './components/AppHeader';
+import AppSider from './components/AppSider';
+import { useStore } from '@/store';
 import { Outlet } from 'react-router';
-import { Layout } from 'antd';
-
-const { Header, Content, Sider } = Layout;
+import './index.scss';
 
 function App() {
+  const isExpand = useStore((state) => state.isExpand);
+
   return (
-    <Layout>
-      <Header>Header</Header>
-      <Sider>Sider</Sider>
-      <Content>
-        <Outlet />
-      </Content>
-    </Layout>
+    <>
+      <AppHeader />
+      <AppSider />
+      <div className="app-main" style={{ paddingLeft: isExpand ? '210px' : '64px' }}>
+        <div className="app-view">
+          <Outlet />
+        </div>
+      </div>
+    </>
   );
 }
 

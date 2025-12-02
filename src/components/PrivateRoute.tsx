@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router';
-import { useStore } from '../store/index.ts';
+import { useStore } from '@/store';
 import type { JSX } from 'react';
 
 // 路由拦截

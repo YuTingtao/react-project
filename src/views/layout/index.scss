@@ -1,0 +1,14 @@
+.app-main {
+  box-sizing: border-box;
+  padding-left: 210px;
+  padding-top: 56px;
+  height: 100%;
+  background: #fff;
+  transition: padding-left 0.3s ease-in-out;
+}
+
+.app-view {
+  box-sizing: border-box;
+  min-height: 100%;
+  padding: 20px;
+}
