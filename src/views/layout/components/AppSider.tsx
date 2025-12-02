@@ -9,7 +9,7 @@ function AppSider() {
     <div className="app-sider" style={{ width: isExpand ? '210px' : '64px' }}>
       <div className={'app-sider-top' + (isExpand ? '' : ' is-expand')}>
         <img className="app-sider-logo" src={logoImg} alt="" />
-        <span>React管理后台</span>
+        <span>React企业中台</span>
       </div>
     </div>
   );
