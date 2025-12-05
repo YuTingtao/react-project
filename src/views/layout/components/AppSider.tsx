@@ -4,18 +4,17 @@ import { Menu } from 'antd';
 import { HomeOutlined, UsergroupAddOutlined } from '@ant-design/icons';
 import './appSider.scss';
 import logoImg from '@/assets/img/logo.png';
-import type { ItemType } from 'antd/es/menu/interface';
 
-const menuItems: ItemType[] = [
+const menuItems = [
   {
     key: '/home',
     icon: <HomeOutlined />,
     label: '首页'
   },
   {
-    key: '/user',
+    key: '/org-user',
     icon: <UsergroupAddOutlined />,
-    label: '用户模块',
+    label: '组织用户管理',
     children: [
       {
         key: '/org-user/org',
