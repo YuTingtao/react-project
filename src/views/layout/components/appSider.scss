@@ -1,14 +1,26 @@
 .app-sider {
-  --menu-bg-color: #36415e;
-  --menu-hover-bg-color: #404d70;
-  --menu-text-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   z-index: 10;
-  background: var(--menu-bg-color);
+  overflow: hidden;
+  background: #36415e;
   transition: width 0.3s ease-in-out;
+  &:hover {
+    overflow-y: auto;
+  }
+  .ant-menu {
+    --ant-menu-dark-item-bg: #36415e;
+    --ant-menu-dark-sub-menu-item-bg: #36415e;
+    --ant-menu-collapsed-width: 64px;
+    --ant-menu-dark-item-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.ant-menu-sub {
+  --ant-menu-dark-popup-bg: #36415e;
+  --ant-menu-dark-item-color: rgba(255, 255, 255, 0.8);
 }
 
 .app-sider-top {
@@ -20,7 +32,7 @@
   overflow: hidden;
   width: 210px;
   padding: 16px 0;
-  background: var(--el-menu-bg-color);
+  background: #36415e;
   color: #fff;
   font-size: 16px;
   font-weight: bolder;

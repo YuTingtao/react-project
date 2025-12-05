@@ -4,7 +4,7 @@ import { useStore } from '@/store';
 import { Outlet } from 'react-router';
 import './index.scss';
 
-function App() {
+export default function Layout() {
   const isExpand = useStore((state) => state.isExpand);
 
   return (
@@ -19,5 +19,3 @@ function App() {
     </>
   );
 }
-
-export default App;

@@ -1,12 +1,13 @@
+import { useStore } from '@/store';
 import styles from './Home.module.scss';
 
-function Home() {
+export default function Home() {
+  const userInfo = useStore((state) => state.userInfo);
+
   return (
     <div className={styles['home-page']}>
-      <div>Home</div>
-      <div>Welcome to home page</div>
+      <div className={styles['welcome-title']}>您好，{userInfo.name}</div>
+      <div>欢迎使用 React 企业中台管理系统</div>
     </div>
   );
 }
-
-export default Home;

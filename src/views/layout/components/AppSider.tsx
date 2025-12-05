@@ -1,9 +1,48 @@
+import { useNavigate } from 'react-router';
 import { useStore } from '@/store';
-import './AppSider.scss';
+import { Menu } from 'antd';
+import { HomeOutlined, UsergroupAddOutlined } from '@ant-design/icons';
+import './appSider.scss';
 import logoImg from '@/assets/img/logo.png';
+import type { ItemType } from 'antd/es/menu/interface';
 
-function AppSider() {
+const menuItems: ItemType[] = [
+  {
+    key: '/home',
+    icon: <HomeOutlined />,
+    label: '首页'
+  },
+  {
+    key: '/user',
+    icon: <UsergroupAddOutlined />,
+    label: '用户模块',
+    children: [
+      {
+        key: '/org-user/org',
+        icon: '',
+        label: '组织管理'
+      },
+      {
+        key: '/org-user/user',
+        icon: '',
+        label: '用户管理'
+      },
+      {
+        key: '/org-user/role',
+        icon: '',
+        label: '角色管理'
+      }
+    ]
+  }
+];
+
+export default function AppSider() {
   const isExpand = useStore((state) => state.isExpand);
+  const navigate = useNavigate();
+
+  function handleMenuClick({ key }: { key: string }) {
+    navigate(key);
+  }
 
   return (
     <div className="app-sider" style={{ width: isExpand ? '210px' : '64px' }}>
@@ -11,8 +50,15 @@ function AppSider() {
         <img className="app-sider-logo" src={logoImg} alt="" />
         <span>React企业中台</span>
       </div>
+
+      <Menu
+        theme="dark"
+        mode="inline"
+        inlineCollapsed={!isExpand}
+        defaultSelectedKeys={['/home']}
+        items={menuItems}
+        onClick={handleMenuClick}
+      />
     </div>
   );
 }
-
-export default AppSider;

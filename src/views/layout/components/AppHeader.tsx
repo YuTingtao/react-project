@@ -4,7 +4,7 @@ import { Avatar, Dropdown } from 'antd';
 import './appHeader.scss';
 import type { UserInfo } from '@/api/account/types';
 
-function AppHeader() {
+export default function AppHeader() {
   const userInfo = useStore((state) => state.userInfo);
   const isExpand = useStore((state) => state.isExpand);
   const toggleIsExpand = useStore((state) => state.toggleIsExpand);
@@ -43,5 +43,3 @@ function AppHeader() {
     </div>
   );
 }
-
-export default AppHeader;

@@ -7,7 +7,7 @@ import styles from './login.module.scss';
 import type { LoginForm } from '@/api/account/types.ts';
 import { loginApi } from '@/api/account/index.ts';
 
-function Login() {
+export default function Login() {
   const navigate = useNavigate();
 
   const rules = {
@@ -65,5 +65,3 @@ function Login() {
     </div>
   );
 }
-
-export default Login;
