@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router';
+import { useLocation, useMatches, useNavigate } from 'react-router';
 import { useStore } from '@/store';
 import { Menu } from 'antd';
 import { HomeOutlined, UsergroupAddOutlined } from '@ant-design/icons';
@@ -36,8 +36,10 @@ const menuItems = [
 ];
 
 export default function AppSider() {
-  const isExpand = useStore((state) => state.isExpand);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const isExpand = useStore((state) => state.isExpand);
 
   function handleMenuClick({ key }: { key: string }) {
     navigate(key);
@@ -54,7 +56,8 @@ export default function AppSider() {
         theme="dark"
         mode="inline"
         inlineCollapsed={!isExpand}
-        defaultSelectedKeys={['/home']}
+        defaultOpenKeys={[location.pathname.slice(0, location.pathname.lastIndexOf('/'))]}
+        defaultSelectedKeys={[location.pathname]}
         items={menuItems}
         onClick={handleMenuClick}
       />
