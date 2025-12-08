@@ -14,20 +14,25 @@ const menuItems = [
   {
     key: '/org-user',
     icon: <UsergroupAddOutlined />,
-    label: '组织用户管理',
+    label: '用户管理',
     children: [
       {
-        key: '/org-user/org',
+        key: '/user/dept',
         icon: '',
-        label: '组织管理'
+        label: '部门管理'
       },
       {
-        key: '/org-user/user',
+        key: '/user/user',
         icon: '',
         label: '用户管理'
       },
       {
-        key: '/org-user/role',
+        key: '/user/menu',
+        icon: '',
+        label: '菜单管理'
+      },
+      {
+        key: '/user/role',
         icon: '',
         label: '角色管理'
       }
